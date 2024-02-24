@@ -1,0 +1,28 @@
+scalar DateTime
+
+type Query {
+  chatItem(id: ID!): ChatItemUnion
+}
+
+union ChatItemUnion = TextMessage | ImageMessage | StatusMessage
+
+type TextMessage {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  text: String
+}
+
+type ImageMessage {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  image: String
+}
+
+type StatusMessage {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  status: String
+}
